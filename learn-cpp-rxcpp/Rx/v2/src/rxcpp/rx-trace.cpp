@@ -21,6 +21,30 @@ namespace rxcpp {
     inline bool operator==(const trace_id& lhs, const trace_id& rhs) {
         return lhs.id == rhs.id;
     }
+    
+    inline bool operator!=(const trace_id& lhs, const trace_id& rhs) {
+        return !(lhs==rhs);
+    }
+    
+    inline bool operator<(const trace_id& lhs, const trace_id& rhs) {
+        if ((lhs.id & 0xF0000000) != (rhs.id & 0xF0000000)) {
+            std::terminate();
+        }
+        
+        return lhs.id < rhs.id;
+    }
+
+    inline bool operator>(const trace_id& lhs, const trace_id& rhs) {
+        if ((lhs.id & 0xF0000000) != (rhs.id & 0xF0000000)) {
+            std::terminate();
+        }
+        
+        return lhs.id > rhs.id;
+    }
+
+    inline std::ostream& operator<< (std::ostream& os, const trace_id&id) {
+        return os << std::hex << id.id << std::dec;
+    }
 }
 
 
