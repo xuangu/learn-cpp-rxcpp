@@ -62,7 +62,54 @@ namespace rxcpp {
         inline void action_return(const Schedulable&) {}
         template<class Schedulable>
         inline void action_recurse(const Schedulable&) {}
+        
+        template<class SubscriberFrom, class SubscriberTo>
+        inline void connect(const SubscriberFrom&, const SubscriberTo&) {}
+        
+        template<class OperatorSource, class OperatorChain, class Subscriber, class SubscriberLifted>
+        inline void lift_enter(const OperatorSource&, const OperatorChain&, const Subscriber&, const SubscriberLifted&) {}
+        template<class OperatorSource, class OperatorChain>
+        inline void lift_return(const OperatorSource&, const OperatorChain&) {}
+        
+        template<class SubscriptionState>
+        inline void unsubscribe_enter(const SubscriptionState&) {}
+        template<class SubscriptionState>
+        inline void unsubscribe_return(const SubscriptionState&) {}
+        
+        template<class SubscriptionState, class Subscription>
+        inline void subscription_add_enter(const SubscriptionState&, const Subscription&) {}
+        template<class SubscriptionState>
+        inline void subscription_add_return(const SubscriptionState&) {}
+        
+        template<class SubscriptionState, class WeakSubscription>
+        inline void subscription_remove_enter(const SubscriptionState&, const WeakSubscription&) {}
+        template<class SubscriptionState>
+        inline void subscription_remove_return(const SubscriptionState&) {}
+        
+        template<class Subscriber>
+        inline void create_subscriber(const Subscriber&) {}
+        
+        template<class Subscriber, class T>
+        inline void on_next_enter(const Subscriber&, const T&) {}
+        template<class Subscriber>
+        inline void on_next_return(const Subscriber&) {}
+        
+        template<class Subscriber, class ErrorPtr>
+        inline void on_error_enter(const Subscriber&, const ErrorPtr&) {}
+        template<class Subscriber>
+        inline void on_error_return(const Subscriber&) {}
+        
+        template<class Subscriber>
+        inline void on_completed_enter(const Subscriber&) {}
+        template<class Subscriber>
+        inline void on_completed_return(const Subscriber&) {}
     };
+
+    struct trace_tag {};
 }
+
+inline auto rxcpp_trace_activity(...) -> rxcpp::trace_noop;
+
+
 
 

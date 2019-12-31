@@ -29,6 +29,7 @@
 		C83EF405239D411B00F3BCB4 /* rx-trace.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "rx-trace.hpp"; sourceTree = "<group>"; };
 		C83EF408239D437A00F3BCB4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		C83EF40A239D458700F3BCB4 /* rx-trace.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "rx-trace.cpp"; sourceTree = "<group>"; };
+		C8E874B023B1C4FA00D3F79B /* rx-includes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "rx-includes.hpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 			children = (
 				C83EF405239D411B00F3BCB4 /* rx-trace.hpp */,
 				C83EF40A239D458700F3BCB4 /* rx-trace.cpp */,
+				C8E874B023B1C4FA00D3F79B /* rx-includes.hpp */,
 			);
 			path = rxcpp;
 			sourceTree = "<group>";
