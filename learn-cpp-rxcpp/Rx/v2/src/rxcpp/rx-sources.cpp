@@ -24,8 +24,14 @@ template<class T>
 class is_source {
     template<class C>
     static typename C::source_tag* check(int);
+    template<class C>
+    static void check(...);
+public:
+    static const bool value = std::is_convertible<decltype(check<rxu::decay_t<T>>(0)), tag_source*>::value;
 };
 
 }
+    
+    namespace rxs = sources;
 
 }
