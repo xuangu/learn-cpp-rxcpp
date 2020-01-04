@@ -32,6 +32,14 @@ namespace rxcpp
         typename std::enable_if<!std::is_array<T0>::value && std::is_pod<T0>::value, std::vector<T0>>::type to_vector(T0 t0, TN... tn) {
             return to_vector({t0, tn...});
         }
+
+        template<typename T>
+        T const &as_const(T &t) {
+            return t;
+        }
+
+        template<typename T>
+        void as_const(T const &&) = delete;
     }
 
 } // namespace namerxcpp
